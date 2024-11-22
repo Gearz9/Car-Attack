@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAN Bus Attack Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>CAN Bus Attack Detection</h2>
+
+    <form method="POST">
+        <label for="can_ids">Enter CAN IDs (comma-separated):</label><br>
+        <input type="text" id="can_ids" name="can_ids" placeholder="e.g., 123, 456, 789" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <h3>Attack Status:</h3>
+    <div class="attack-box" style="background-color: {{ attack_status['Fuzzy'] }};">Fuzzy Attack</div>
+    <div class="attack-box" style="background-color: {{ attack_status['DoS'] }};">DoS Attack</div>
+    <div class="attack-box" style="background-color: {{ attack_status['Gear'] }};">Gear Attack</div>
+    <div class="attack-box" style="background-color: {{ attack_status['RPM'] }};">RPM Attack</div>
+</body>
+</html>
