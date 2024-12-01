@@ -57,7 +57,9 @@ def index():
             print("rf_predictions : " , rf_predictions)
             print("svc_predictions : " , svc_predictions)
             # Combine predictions from both models
-            # combined_predictions = list(rf_predictions) + list(svc_predictions)
+            combined_prediction = list(rf_predictions) + list(svc_predictions)
+            
+            # this is our final predictions
             combined_predictions = rf_predictions
 
             # Determine which attacks are predicted
